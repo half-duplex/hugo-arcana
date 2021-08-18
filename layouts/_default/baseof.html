@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="{{ .Language }}">
+    <head>
+        {{- partial "head.html" . -}}
+        {{- template "_internal/opengraph.html" . -}}
+    </head>
+    <body class="is-preload">
+        <div id="page-wrapper">
+            {{- partial "header.html" . }}
+            {{- $sidebar_count := (add (cond (isset .Params "sidebar_left") 1 0) (cond (isset .Params "sidebar_right") 1 0)) }}
+
+            <section class="wrapper style1">
+                <div class="container">
+                    {{ if gt $sidebar_count 0 }}<div class="row gtr-200">{{ end }}
+
+                        {{- with .Params.sidebar_left }}
+                            <div class="col-{{ cond (eq $sidebar_count 1) 4 3 }} col-12-narrower">
+                                <div id="sidebar">
+                                    {{- partial (printf "sidebar/%s.html" .) . }}
+                                </div>
+                            </div>
+                        {{- end }}
+
+                        <div class="{{ if gt $sidebar_count 0 -}}
+                                col-{{ cond (eq $sidebar_count 1) 8 6 }} col-12-narrower imp-narrower
+                                {{- end }}">
+                            <div id="content">
+                                <article>
+                                    {{- block "main" . }}{{- end }}
+                                </article>
+                            </div>
+                        </div>
+
+                        {{- with .Params.sidebar_right }}
+                            <div class="col-{{ cond (eq $sidebar_count 1) 4 3 }} col-12-narrower">
+                                <div id="sidebar">
+                                    {{- partial (printf "sidebar/%s.html" .) . }}
+                                </div>
+                            </div>
+                        {{- end }}
+
+                    {{ if gt $sidebar_count 0 }}</div>{{ end }}
+                </div>
+            </section>
+
+            {{- partial "footer/footer.html" . -}}
+        </div>
+        {{- partial "scripts.html" . -}}
+    </body>
+</html>

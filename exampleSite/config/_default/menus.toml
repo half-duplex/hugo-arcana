@@ -1,0 +1,45 @@
+[[main]]
+    name = "Dropdown"
+    weight = 30
+[[main]]
+    parent = "Dropdown"
+    name = "Lorem dolor"
+    weight = 31
+[[main]]
+    parent = "Dropdown"
+    name = "Magna Phasellus"
+    weight = 32
+[[main]]
+    parent = "Dropdown"
+    name = "Etiam sed tempus"
+    weight = 33
+[[main]]
+    parent = "Dropdown"
+    name = "Submenu"
+    weight = 34
+[[main]]
+    parent = "Submenu"
+    name = "Lorem dolor"
+    identifier = "sub-lorem"
+    weight = 35
+[[main]]
+    parent = "Submenu"
+    name = "Phasellus magna"
+    weight = 36
+[[main]]
+    parent = "Submenu"
+    name = "Magna phasellus"
+    weight = 37
+[[main]]
+    parent = "Submenu"
+    name = "Etiam nisl"
+    weight = 38
+[[main]]
+    parent = "Submenu"
+    name = "Veroeros feugiat"
+    identifier = "sub-veroeros"
+    weight = 39
+[[main]]
+    parent = "Dropdown"
+    name = "Veroeros feugiat"
+    weight = 40

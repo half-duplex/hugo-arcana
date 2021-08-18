@@ -1,0 +1,16 @@
+<section class="wrapper style1">
+    <div class="container">
+        <div class="row gtr-200">
+            {{- $item_cols := (div 12 (.items_per_row | default 3)) }}
+            {{- range .item.items }}
+                <section class="col-{{ $item_cols }} col-12-narrower">
+                    <div class="box highlight">
+                        <i class="icon solid major {{ .icon }}"></i>
+                        <h3>{{ .title }}</h3>
+                        <p>{{ .content | markdownify }}</p>
+                    </div>
+                </section>
+            {{- end }}
+        </div>
+    </div>
+</section>

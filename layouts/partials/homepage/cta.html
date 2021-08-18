@@ -1,0 +1,10 @@
+<section id="cta" class="wrapper style3">
+    <div class="container">
+        <header>
+            <h2>{{ .item.contents | markdownify }}</h2>
+            {{- with .item.button }}
+                <a href="{{ .url }}" class="button">{{ .contents }}</a>
+            {{- end }}
+        </header>
+    </div>
+</section>

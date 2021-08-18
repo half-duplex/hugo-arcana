@@ -1,0 +1,8 @@
+<section id="banner">
+    <header>
+        <h2>{{ .contents | markdownify }}</h2>
+        {{- if .button }}
+            <a href="{{ .button.url }}" class="button">{{ .button.contents }}</a>
+        {{- end }}
+    </header>
+</section>

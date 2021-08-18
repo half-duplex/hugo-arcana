@@ -1,0 +1,17 @@
+<section class="wrapper style1">
+    <div class="container">
+        {{- $pages := (.ctx.Site.GetPage .item.content_type).Pages }}
+        {{- range $idx, $itm := first (.item.max | default 4) $pages }}
+            {{- $rowpos := mod $idx 2 }}
+            {{- if eq $rowpos 0 }}
+                <div class="row">
+            {{ end }}
+
+            {{- .Render "shortblock" -}}
+
+            {{ if or (eq $rowpos 1) (eq $idx (len $pages)) -}}
+                </div>
+            {{- end }}
+        {{- end }}
+    </div>
+</section>

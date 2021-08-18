@@ -1,0 +1,20 @@
+<div class="row">
+    {{ range . }}
+        <section class="col-6 col-12-narrower">
+            <div class="box post">
+                <a href="{{ .Permalink }}" class="image left"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></a>
+                <div class="inner">
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    {{ with .Date }}<p class="date">{{ .Format "Jan 2, 2006" }}</p>{{ end }}
+                    <p>
+                        {{ with .Description }}
+                            {{ . }}
+                        {{ else }}
+                            {{ .Summary }}
+                        {{ end }}
+                    </p>
+                </div>
+            </div>
+        </section>
+    {{ end }}
+</div>
