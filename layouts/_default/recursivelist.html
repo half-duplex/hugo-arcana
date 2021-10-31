@@ -10,7 +10,7 @@
         <span class="image featured"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></span>
     {{ end }}
 
-    {{ range .RegularPages }}
+    {{ range .RegularPagesRecursive }}
         {{ .Render "shortblock" }}
     {{ end }}
 
