@@ -1,8 +1,8 @@
 <section>
     <div class="box post">
-        <a href="{{ .Permalink }}" class="image left"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></a>
+        <a href="{{ .RelPermalink }}" class="image left"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></a>
         <div class="inner">
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             <p>
                 {{ with .Description }}
                     {{- . }}
