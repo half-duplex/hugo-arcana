@@ -1,5 +1,6 @@
 <section class="wrapper style1">
     <div class="container">
+        {{ with .item.heading }}<h2>{{ . }}</h2>{{ end }}
         {{- $pages := (.ctx.Site.GetPage .item.content_type).Pages }}
         {{- range $idx, $itm := first (.item.max | default 4) $pages }}
             {{- $rowpos := mod $idx 2 }}

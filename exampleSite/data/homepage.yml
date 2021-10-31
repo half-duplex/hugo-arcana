@@ -22,6 +22,7 @@ items:
     heading: A gigantic heading you can use for whatever
     contents: With a much smaller subtitle hanging out just below it
   - type: posts
+    #heading: Recent Posts
     content_type: posts
     max: 4
   - type: cta
