@@ -1,7 +1,7 @@
 banner:
   enable: true
   image: "images/banner.jpg"
-  contents: "**Arcana:** _A responsive site template freebie by [HTML5 UP](http://html5up.net/)_"
+  contents: "**Arcana:** _A responsive site template freebie by [HTML5 UP](https://html5up.net/)_"
   button:
     contents: "Learn More"
     url: "#"
