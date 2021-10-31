@@ -13,6 +13,9 @@ See the exampleSite folder. The elements on the homepage are defined in
 The mostly-empty `_index.md` files are required for marking of the active menu
 item to work correctly.
 
+You can add your own sass by putting it in assets/sass/custom.scss, which is
+included at the end of main.scss.
+
 ## Contributing
 Pull requests welcome! This is my first Hugo theme, and I expect there are some
 things I've done sub-optimally.
