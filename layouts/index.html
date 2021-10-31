@@ -9,11 +9,11 @@
             {{- partial "header.html" . }}
 
             {{- if .Site.Data.homepage.banner.enable }}
-                {{- partial "banner.html" .Site.Data.homepage.banner -}}
+                {{- partial "homepage/banner.html" .Site.Data.homepage.banner -}}
             {{- end }}
 
             {{- range .Site.Data.homepage.items }}
-                {{- partial (printf "homepage/%s.html" .type) (dict "ctx" $ "item" .) }}
+                {{- partial (printf "homepage/blocks/%s.html" .type) (dict "ctx" $ "item" .) }}
             {{- end }}
 
             {{- partial "footer/footer.html" . -}}
