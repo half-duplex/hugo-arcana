@@ -31,7 +31,9 @@
 
     <div class="copyright">
         <ul class="menu">
-            {{ if .Site.Copyright }}<li>{{ .Site.Copyright }}{{ end }}
+            {{ if .Site.Copyright }}
+                <li>{{ replace .Site.Copyright "{currentYear}" now.Year }}
+            {{ end }}
             {{- if .Site.Params.attribution | default true }}
                 <li>Design: <a href="https://html5up.net">HTML5 UP</a>
                 <li><a href="https://github.com/half-duplex/hugo-arcana">Theme</a>
