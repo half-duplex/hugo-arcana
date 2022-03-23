@@ -16,6 +16,11 @@ item to work correctly.
 You can add your own sass by putting it in assets/sass/custom.scss, which is
 included at the end of main.scss.
 
+## Showcase
+If you use this theme, let me know, and I'll list your site here!
+- [Theme Demo Site](https://sec.gd/hugo/themes/arcana/)
+- [Odesa Regional Organization of Red Cross Society of Ukraine](https://od.redcross.org.ua/)
+
 ## Contributing
 Pull requests welcome! This is my first Hugo theme, and I expect there are some
 things I've done sub-optimally.
