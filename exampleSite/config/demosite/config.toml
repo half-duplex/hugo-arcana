@@ -1,2 +1,4 @@
 publishDir = "/srv/http/mal/sec/htdocs/hugo/themes/arcana/"
 baseURL = "https://sec.gd/hugo/themes/arcana/"
+[params]
+    googleTagManagerID = "GTM-MB3N93D"

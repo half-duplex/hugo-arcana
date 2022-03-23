@@ -13,8 +13,8 @@ See the exampleSite folder. The elements on the homepage are defined in
 The mostly-empty `_index.md` files are required for marking of the active menu
 item to work correctly.
 
-You can add your own sass by putting it in assets/sass/custom.scss, which is
-included at the end of main.scss.
+You can add your own styles in your site's `assets/sass/custom.scss`, which is
+included at the end of the theme's `main.scss`.
 
 ## Showcase
 If you use this theme, let me know, and I'll list your site here!
