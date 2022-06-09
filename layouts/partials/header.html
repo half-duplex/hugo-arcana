@@ -1,6 +1,12 @@
-{{ $globalLogoEnabled := or (not (isset .Site.Data.globalheader.logo "enable")) .Site.Data.globalheader.logo.enable }}
+{{ $globalLogoEnabled := true }}
 
-<div id= {{ cond $globalLogoEnabled "header" "header-without-global-logo" }} >
+{{ with .Site.Data.globalheader }}
+    {{ with .logo }}
+        {{ $globalLogoEnabled = .enable }}
+    {{ end }}
+{{ end }}
+
+<div id="{{ cond $globalLogoEnabled "header" "header-without-global-logo" }}" >
     {{ if $globalLogoEnabled }}
         <h1><a href="{{ .Site.BaseURL }}" id="logo">
             {{ with .Site.Data.globalheader.title }}{{ . | markdownify }}{{ else }}{{ .Site.Title }}{{ end }}
