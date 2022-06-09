@@ -802,6 +802,12 @@
         }
     }
 
+    #header-without-global-logo {
+        @extend #header;
+
+        padding: 0;
+    }
+
     #nav {
         cursor: default;
         background-color: #333;
