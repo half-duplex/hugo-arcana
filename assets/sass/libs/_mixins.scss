@@ -2,7 +2,7 @@
 /// @param {string} $content Optional content value to use.
 /// @param {string} $category Optional category to use.
 /// @param {string} $where Optional pseudoelement to target (before or after).
-@mixin icon($content: false, $category: regular, $where: before) {
+@mixin fontawesome-icon($content: false, $category: regular, $where: before) {
 
     text-decoration: none;
 

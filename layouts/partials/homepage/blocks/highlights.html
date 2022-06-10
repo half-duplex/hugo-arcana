@@ -5,7 +5,16 @@
             {{- range .item.items }}
                 <section class="col-{{ $item_cols }} col-12-narrower">
                     <div class="box highlight">
-                        <i class="icon solid major {{ .icon }}"></i>
+                        {{ partial
+                            "icon.html" 
+                            (dict
+                                "icon" .icon
+                                "fontAwesomeIncluded" $.ctx.Site.Params.includeFontAwesome
+                                "fontawesomeType" "solid major"
+                                "title" .title
+                                "url" .url
+                            )
+                        }}
                         <h3>{{ .title }}</h3>
                         <p>{{ .content | markdownify }}</p>
                     </div>

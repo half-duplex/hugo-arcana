@@ -1,5 +1,10 @@
 {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" .Site.Params.enableSourceMaps) }}
 {{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS $options }}
+{{ if .Site.Params.includeFontAwesome | default true }}
+    {{ $style := resources.Get "css/fontawesome-all.min.css" }}
+    <link rel="stylesheet" href="{{ ($style | fingerprint).RelPermalink }}">
+{{ end }}
+
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />

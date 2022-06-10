@@ -10,6 +10,7 @@ copyright = "© Untitled. All rights reserved"
 [params]
     description = "A business/corporate style responsive site template."
     show_post_dates = false
+    includeFontAwesome = true
 
     [[params.social]]
         title = "Twitter"

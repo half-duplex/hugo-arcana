@@ -25,6 +25,23 @@ If you use this theme, let me know, and I'll list your site here!
 Pull requests welcome! This is my first Hugo theme, and I expect there are some
 things I've done sub-optimally.
 
+## Params
+* **includeFontAwesome**\
+Boolean which specifies whether to include Font Awesome icons. Default true.
+* **googleTagManagerID**
+* **show_post_dates**\
+Default true.
+* **footer**
+    * **links**
+    * **contact_form**
+        * **enabled**
+* **social**
+* **attribution**\
+Default true.
+* **enableSourceMaps**\
+Enable source maps for SCSS style sheets. Default false.
+
+
 ## Thanks
 I borrowed a good amount of structure and useful bits from
 [hugo-html5up-alpha](https://github.com/dewittn/hugo-html5up-alpha)

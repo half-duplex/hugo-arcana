@@ -8,7 +8,7 @@
                     <h3>{{ .header }}</h3>
                     <ul class="links">
                         {{- range .links }}
-                            <li><a href="{{ .url }}">{{ .title }}</a>
+                            <li><a href="{{ .url }}">{{ .title }}</a></li>
                         {{- end }}
                     </ul>
                 </section>
@@ -23,20 +23,20 @@
 
     <ul class="icons">
     {{- range .Site.Params.social }}
-        <li><a href="{{ .url }}" class="{{ if .icon }}icon brands {{ .icon  }}{{ end }}">
-            <span class="label">{{ .title }}</span>
-        </a>
+        <li>
+            {{ partial "icon.html" (dict "icon" .icon "fontAwesomeIncluded" $.Site.Params.includeFontAwesome "fontawesomeType" "brands" "title" .title "url" .url ) }}
+        </li>
     {{- end }}
     </ul>
 
     <div class="copyright">
         <ul class="menu">
             {{ if .Site.Copyright }}
-                <li>{{ replace .Site.Copyright "{currentYear}" now.Year }}
+                <li>{{ replace .Site.Copyright "{currentYear}" now.Year }}</li>
             {{ end }}
             {{- if .Site.Params.attribution | default true }}
                 <li>Design: <a href="https://html5up.net">HTML5 UP</a>
-                <li><a href="https://github.com/half-duplex/hugo-arcana">Theme</a>
+                <li><a href="https://github.com/half-duplex/hugo-arcana">Theme</a></li>
             {{- end }}
         </ul>
     </div>

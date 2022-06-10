@@ -1,0 +1,28 @@
+{{ if isset . "icon" }}
+    {{ $url := .url }}
+    {{ $title := .title | default "" }}
+
+    {{ if not .fontAwesomeIncluded }}
+        {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
+        {{ $iconUrl := $iconAsset.RelPermalink }}
+        <a href="{{ $url }}">
+            <img class="icon" src="{{ $iconUrl }}" alt="{{ $title }}" />
+        </a>            
+    {{ else }}
+        {{ $prefix := substr .icon 0 3 }}
+        {{ if not (eq $prefix "fa-") }}
+            {{ $class = "icon" }}
+            {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
+            {{ $iconUrl := $iconAsset.RelPermalink }}
+            <a href="{{ $url }}" class="icon">
+                <img src="{{ $iconUrl }}" alt="{{ $title }}" />
+            </a>            
+        {{ else }}
+            {{ $class := printf "fontawesome-icon %s %s" .icon (.fontawesomeType | default "") }}
+
+            <a href="{{ $url }}" class="{{ $class }}">
+                <span class="label">{{ $title }}</span>
+            </a>            
+        {{ end }}
+    {{ end }}
+{{ end }}
