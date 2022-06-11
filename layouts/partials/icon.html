@@ -5,24 +5,30 @@
     {{ if not .fontAwesomeIncluded }}
         {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
         {{ $iconUrl := $iconAsset.RelPermalink }}
-        <a href="{{ $url }}">
-            <img class="icon" src="{{ $iconUrl }}" alt="{{ $title }}" />
-        </a>            
+        <div class="icon-container">
+            <a href="{{ $url }}">
+                <img class="icon" src="{{ $iconUrl }}" alt="{{ $title }}" />
+            </a>
+        </div>
     {{ else }}
         {{ $prefix := substr .icon 0 3 }}
         {{ if not (eq $prefix "fa-") }}
             {{ $class = "icon" }}
             {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
             {{ $iconUrl := $iconAsset.RelPermalink }}
-            <a href="{{ $url }}" class="icon">
-                <img src="{{ $iconUrl }}" alt="{{ $title }}" />
-            </a>            
+            <div class="icon-container">
+                <a href="{{ $url }}" class="icon">
+                    <img src="{{ $iconUrl }}" alt="{{ $title }}" />
+                </a>            
+            </div>
         {{ else }}
             {{ $class := printf "fontawesome-icon %s %s" .icon (.fontawesomeType | default "") }}
 
-            <a href="{{ $url }}" class="{{ $class }}">
-                <span class="label">{{ $title }}</span>
-            </a>            
+            <div class="icon-container">
+                <a href="{{ $url }}" class="{{ $class }}">
+                    <span class="label">{{ $title }}</span>
+                </a>            
+            </div>
         {{ end }}
     {{ end }}
 {{ end }}
