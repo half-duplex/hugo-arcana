@@ -1,0 +1,24 @@
+{{ if or .ctx.Content .item.heading }}
+    <section class="wrapper style1">
+        <div class="container">
+            {{ with .item.heading }}
+                <header class="major">
+                    <h2>{{ . }}</h2>
+                    {{ with $.item.sub_heading }}
+                        {{- $html := $.item.sub_heading | markdownify }}
+                        {{- if (findRE "<p(?: [^>]*)?>" $html) }}
+                            {{ $html }}
+                        {{- else -}}
+                            <p>{{ $html }}</p>
+                        {{- end }}
+                    {{ end }}
+                </header>
+            {{ end }}
+            {{ with .ctx.Content }}
+                <article class="content">
+                    {{ . }}
+                </article>
+            {{ end }}
+        </div>
+    </section>
+{{ end }}
