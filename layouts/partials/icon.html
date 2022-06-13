@@ -1,34 +1,33 @@
 {{ if isset . "icon" }}
-    {{ $url := .url }}
-    {{ $title := .title | default "" }}
-
     {{ if not .fontAwesomeIncluded }}
-        {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
-        {{ $iconUrl := $iconAsset.RelPermalink }}
-        <div class="icon-container">
-            <a href="{{ $url }}">
-                <img class="icon" src="{{ $iconUrl }}" alt="{{ $title }}" />
-            </a>
-        </div>
+        {{ partial "partials/icon-not-font-awesome.html" . }}
     {{ else }}
         {{ $prefix := substr .icon 0 3 }}
         {{ if not (eq $prefix "fa-") }}
-            {{ $class = "icon" }}
-            {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
-            {{ $iconUrl := $iconAsset.RelPermalink }}
-            <div class="icon-container">
-                <a href="{{ $url }}" class="icon">
-                    <img src="{{ $iconUrl }}" alt="{{ $title }}" />
-                </a>            
-            </div>
+            {{ partial "partials/icon-not-font-awesome.html" . }}
         {{ else }}
             {{ $class := printf "fontawesome-icon %s %s" .icon (.fontawesomeType | default "") }}
 
             <div class="icon-container">
-                <a href="{{ $url }}" class="{{ $class }}">
-                    <span class="label">{{ $title }}</span>
+                <a href="{{ .url }}" class="{{ $class }}">
+                    <span class="label">{{ .title }}</span>
                 </a>            
             </div>
         {{ end }}
     {{ end }}
+{{ end }}
+
+{{ define "partials/icon-not-font-awesome.html" }}
+    {{ $iconAsset := resources.Get (printf "icons/%s" .icon) }}
+    {{ $iconUrl := $iconAsset.RelPermalink }}
+    {{ partial
+        "contained-linked-image.html"
+        (
+            dict
+                "containerClass" "icon-container"
+                "linkUrl" .url
+                "imageUrl" $iconUrl
+                "title" .title
+        )
+    }}
 {{ end }}

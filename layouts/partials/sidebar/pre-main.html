@@ -1,0 +1,19 @@
+{{ $sidebar_count := .Page.GetScratch "sidebar_count" }}
+
+<section class="wrapper style1">
+    <div class="container">
+        {{ if gt $sidebar_count 0 }}<div class="row gtr-200">{{ end }}
+
+            {{- with .Params.sidebar_left }}
+                <div class="col-{{ cond (eq $sidebar_count 1) 4 3 }} col-12-narrower">
+                    <div id="sidebar">
+                        {{- partial (printf "sidebar/%s.html" .) . }}
+                    </div>
+                </div>
+            {{- end }}
+
+            <div class="{{ if gt $sidebar_count 0 -}}
+                    col-{{ cond (eq $sidebar_count 1) 8 6 }} col-12-narrower imp-narrower
+                    {{- end }}">
+                <div id="content">
+                    <article>

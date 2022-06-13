@@ -1,0 +1,19 @@
+<div class="imprint">
+    <div class="contact">
+        <div class="phone">
+            <span class="heading">Phone: </span>
+            <span class="data">{{ .Site.Params.contact.phone }}</span>
+        </div>
+        <div id="email">
+            <span class="heading">Email: </span>
+            <span class="data">
+                <a href="mailto:{{ .Site.Data.contact.email }}">
+                    {{ .Site.Params.contact.email }}
+                </a>
+            </span>
+        </div>
+    </div>
+    <span class="pageLink">
+        <a href="{{ .Site.BaseURL }}imprint">imprint</a>
+    </span>
+</div>

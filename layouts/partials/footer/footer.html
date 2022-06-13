@@ -1,5 +1,5 @@
 <div id="footer">
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             {{- if gt (len .Site.Params.footer.links) 0 }}
                 {{- $link_cols := div (cond .Site.Params.footer.contact_form.enabled 6 12) (len .Site.Params.footer.links) }}
@@ -39,5 +39,7 @@
                 <li><a href="https://github.com/half-duplex/hugo-arcana">Theme</a></li>
             {{- end }}
         </ul>
-    </div>
+    </div> -->
+
+    {{ partial "footer/imprint.html" . }}
 </div>

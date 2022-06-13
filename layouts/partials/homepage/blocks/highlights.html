@@ -1,25 +1,32 @@
-<section class="wrapper style1">
-    <div class="container">
-        <div class="row gtr-200">
-            {{- $item_cols := (div 12 (.items_per_row | default 3)) }}
-            {{- range .item.items }}
-                <section class="col-{{ $item_cols }} col-12-narrower">
-                    <div class="box highlight">
-                        {{ partial
-                            "icon.html" 
-                            (dict
-                                "icon" .icon
-                                "fontAwesomeIncluded" $.ctx.Site.Params.includeFontAwesome
-                                "fontawesomeType" "solid major"
-                                "title" .title
-                                "url" .url
-                            )
-                        }}
-                        <h3>{{ .title }}</h3>
-                        <p>{{ .content | markdownify }}</p>
-                    </div>
-                </section>
-            {{- end }}
-        </div>
+<section class="highlights container">
+    <div class="grid">
+        {{- $item_cols := (div 12 (.items_per_row | default 3)) }}
+        {{- range .block.items }}
+            <div class="highlight">
+                <div class="icon-title-container">
+                    {{ partial
+                        "icon.html" 
+                        (dict
+                            "icon" .icon
+                            "fontAwesomeIncluded" $.ctx.Site.Params.includeFontAwesome
+                            "fontawesomeType" "solid major"
+                            "title" .title
+                            "url" .url
+                        )
+                    }}
+
+                    {{ if .url }}
+                        <a href="{{ .url }}">
+                    {{ end }}
+                        <h3 class="title">{{ .title }}</h3>
+                    {{ if .url }}
+                        </a>
+                    {{ end }}
+                </div>
+                <div class="content">
+                    <p>{{ .content | markdownify }}</p>
+                </div>
+            </div>
+        {{- end }}
     </div>
 </section>

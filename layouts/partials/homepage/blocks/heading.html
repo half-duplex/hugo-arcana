@@ -1,13 +1,11 @@
-<section class="wrapper style2">
-    <div class="container">
-        <header class="major">
-            <h2>{{ .item.heading }}</h2>
-            {{- $html := .item.contents | markdownify }}
-            {{- if (findRE "<p(?: [^>]*)?>" $html) }}
-                {{ $html }}
-            {{- else -}}
-                <p>{{ $html }}</p>
-            {{- end }}
-        </header>
-    </div>
+<section class="heading container">
+    <header class="major">
+        <h2>{{ .block.heading }}</h2>
+        {{- $html := .block.contents | markdownify }}
+        {{- if (findRE "<p(?: [^>]*)?>" $html) }}
+            {{ $html }}
+        {{- else -}}
+            <p>{{ $html }}</p>
+        {{- end }}
+    </header>
 </section>

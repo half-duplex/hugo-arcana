@@ -1,0 +1,52 @@
+{{ define "main" }}
+
+    <div class="container">
+        <section class="imprint-main-grid-container">
+            <span>Copyright</span>
+            <span>{{ .Params.Copyright }}</span>
+            <span>Generated Date</span>
+            <span>{{ now.Format "2006-01-02 03:04 MST" }}</span>
+            <span>Generator</span>
+            <span>{{ .Params.Generator }}</span>
+        </section>
+
+        <h5 id="attributionsHeader">Attributions</h5>
+
+        <section class="imprint-attributions-grid-container">
+            <span class="imprint-grid-heading">Item</span>
+            <span class="imprint-grid-heading">Type</span>
+            <span class="imprint-grid-heading">Location</span>
+            <span class="imprint-grid-heading">Creator</span>
+            <span class="imprint-grid-heading">Source</span>
+            <span class="imprint-grid-heading">Adjustments</span>
+            <span class="imprint-grid-heading">License</span>
+
+            {{ range .Site.Data.attributions.attributions }}
+                {{ if .itemUrl }}
+                    <a href="{{ .itemUrl }}">{{ .item }}</a>
+                {{ else }}
+                    <span>{{ .item }}</span>
+                {{ end }}
+                <span>{{ .type }}</span>
+                <span>{{ .location }}</span>
+                {{ if .creatorUrl }}
+                    <a href="{{ .creatorUrl }}">{{ .creator }}</a>
+                {{ else }}
+                    <span>{{ .creator }}</span>
+                {{ end }}
+                {{ if .sourceUrl }}
+                    <a href="{{ .sourceUrl }}">{{ .source }}</a>
+                {{ else }}
+                    <span>{{ .source }}</span>
+                {{ end }}
+                <span>{{ .adjustments }}</span>
+                {{ if .licenceUrl }}
+                    <a href="{{ .licenceUrl }}">{{ .licence }}</a>
+                {{ else }}
+                    <span>{{ .licence }}</span>
+                {{ end }}
+            {{ end }}
+        </section>
+    </div>
+
+{{ end }}

@@ -1,0 +1,6 @@
+{{ $sidebar_count := (add (cond (isset .Params "sidebar_left") 1 0) (cond (isset .Params "sidebar_right") 1 0)) }}
+{{ .Page.Scratch.Set "sidebar_count" $sidebar_count }}
+
+{{ partial "sidebar/pre-main.html" . }}
+{{- block "main" . }}{{- end }}
+{{ partial "sidebar/post-main.html" . }}

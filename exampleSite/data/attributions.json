@@ -1,0 +1,56 @@
+{
+    "attributions": [
+        {
+            "type": "Template",
+            "item": "Arcand",
+            "itemUrl": "https://themes.gohugo.io/hugo-arcand/",
+            "creator": "Paul Klink",
+            "creatorUrl": "https://paul.klink.id.au",
+            "location": "Everywhere",
+            "source": "GitHub",
+            "sourceUrl": "https://github.com/pbklink/hugo-arcand",
+            "adjustments": "",
+            "licence": "Creative Commons Attribution 3.0 Unported (CC BY 3.0)",
+            "licenceUrl": "http://creativecommons.org/licenses/by/3.0/"
+        },
+        {
+            "type": "Template",
+            "item": "Arcana",
+            "itemUrl": "https://themes.gohugo.io/themes/hugo-arcana/",
+            "creator": "Half Duplex",
+            "creatorUrl": "https://github.com/half-duplex",
+            "location": "Everywhere",
+            "source": "GitHub",
+            "sourceUrl": "https://github.com/half-duplex/hugo-arcana",
+            "adjustments": "",
+            "licence": "Creative Commons Attribution 3.0 Unported (CC BY 3.0)",
+            "licenceUrl": "http://creativecommons.org/licenses/by/3.0/"
+        },
+        {
+            "type": "Template",
+            "item": "Arcana",
+            "itemUrl": "https://html5up.net/arcana",
+            "creator": "ajkln",
+            "creatorUrl": "https://aj.lkn.io/",
+            "location": "Everywhere",
+            "source": "https://html5up.net",
+            "sourceUrl": "https://html5up.net/arcana/download",
+            "adjustments": "",
+            "licence": "Creative Commons Attribution 3.0 Unported (CC BY 3.0)",
+            "licenceUrl": "http://creativecommons.org/licenses/by/3.0/"
+        },
+        {
+            "type": "Image",
+            "item": "Globo verde",
+            "itemUrl": "https://www.flickr.com/photos/97513256@N06/9044197386/",
+            "creator": "Olearys",
+            "creatorUrl": "https://www.flickr.com/photos/97513256@N06/",
+            "location": "Home Page",
+            "source": "Flickr",
+            "sourceUrl": "https://www.flickr.com/photos/97513256@N06/9044197386/",
+            "adjustments": "Cropped",
+            "licence": "Attribution 2.0 Generic (CC BY 2.0)",
+            "licenceUrl": "https://creativecommons.org/licenses/by/2.0/"
+        }
+    ]
+}

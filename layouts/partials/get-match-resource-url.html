@@ -1,0 +1,16 @@
+{{ $url := "" }}
+{{ $resourceName := .Get "resourceName" }}
+{{ if $resourceName }}
+    {{ $initialChars := substr $resourceName 0 2 }}
+    {{ if (eq $initialChars "//") }}
+        {{ $resourceName = substr $resourceName 2 }}
+        {{ .Set "resourceName" $resourceName }}
+        {{ $url = partial "get-match-asset-resource-url.html" . }}    
+    {{ else }}
+        {{ $url = partial "get-match-page-resource-url.html" . }}
+    {{ end }}
+{{ else }}
+    {{ errorf "'%s': resource name not defined" .id }}
+{{ end }}
+
+{{ return $url }}

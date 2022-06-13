@@ -1,0 +1,20 @@
+{{ $containerClassAttribute := "" }}
+{{ if .containerClass }}
+    <div class="{{ .containerClass }}">
+{{ else }}
+    <div>
+{{ end }}
+    {{ if .linkUrl }}
+        <a href="{{ .linkUrl }}">
+    {{ end }}
+        {{ $altAttribute := "" }}
+        {{ if .title }}
+            <img src="{{ .imageUrl }}" alt="{{ .title }}" />
+        {{ else }}
+            <img src="{{ .imageUrl }}" />
+        {{ end }}
+
+    {{ if .linkUrl }}
+        </a>            
+    {{ end }}
+</div>

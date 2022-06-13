@@ -1,0 +1,17 @@
+{{ $sidebar_count := .Page.GetScratch "sidebar_count" }}
+
+                    </article>
+                </div>
+            </div>
+
+            {{- with .Params.sidebar_right }}
+                <div class="col-{{ cond (eq $sidebar_count 1) 4 3 }} col-12-narrower">
+                    <div id="sidebar">
+                        {{- partial (printf "sidebar/%s.html" .) . }}
+                    </div>
+                </div>
+            {{- end }}
+
+        {{ if gt $sidebar_count 0 }}</div>{{ end }}
+    </div>
+</section>

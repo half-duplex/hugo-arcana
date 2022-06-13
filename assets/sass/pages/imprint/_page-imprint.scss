@@ -1,0 +1,19 @@
+.imprint-main-grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.imprint-attributions-grid-container {
+  display: grid;
+  grid-template-columns: repeat( 7, minmax(min-content, max-content) );
+  // grid-template-columns: auto auto auto auto auto auto auto ;
+  column-gap: 2em;
+}
+
+.imprint-grid-heading {
+  font-weight: bolder;
+}
+
+#attributionsHeader {
+  margin-top: 2em;
+}

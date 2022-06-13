@@ -1,0 +1,16 @@
+{{ $url := "" }}
+{{ $resourceName := .Get "resourceName" }}
+{{ $context := .Get "context" }}
+{{ $id := .Get "id" }}
+
+{{ if $resourceName }}
+    {{ with (resources.GetMatch $resourceName) }}
+        {{ $url = .RelPermalink }}
+    {{ else }}
+        {{ errorf "'%s': resource '%s' not found" $id $resourceName }}
+    {{ end }}
+{{ else }}
+    {{ errorf "'%s': resource name not defined" $id }}
+{{ end }}
+
+{{ return $url }}
