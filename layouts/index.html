@@ -1,7 +1,7 @@
 {{ define "main" }}
-    <section class="blocks">
+    <main class="blocks">
         {{- range .Params.blocks }}
             {{- partial (printf "homepage/blocks/%s.html" .type) (dict "ctx" $ "block" .) }}
         {{- end }}
-    </section>
+    </main>
 {{ end }}

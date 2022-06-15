@@ -1,0 +1,29 @@
+<div id="footer">
+    <div class="container">
+        <div class="contact">
+            {{ $contact := .Site.Params.contact }}
+            <div class="phone">
+                {{ $phone := $contact.phone }}
+                <span class="heading">{{ $phone.heading }}: </span>
+                <span class="data">
+                    <a href="tel:{{ $phone.number }}">
+                        {{ $phone.number }}
+                    </a>
+                </span>
+            </div>
+            <div id="email">
+                {{ $email := $contact.email }}
+                <span class="heading">{{ $email.heading }}: </span>
+                <span class="data">
+                    <a href="mailto:{{ $email.address }}">
+                        {{ $email.address }}
+                    </a>
+                </span>
+            </div>
+        </div>
+
+        <span class="imprint">
+            <a href="{{ .Site.BaseURL }}imprint">imprint</a>
+        </span>
+    </div>
+</div>

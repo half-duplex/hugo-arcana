@@ -1,17 +1,7 @@
 {{ define "main" }}
-    <header>
-        <h2>{{ .Title }}</h2>
-        {{ with .Description -}}
-            <p>{{ . }}</p>
-        {{- end }}
-    </header>
-
-    {{- if .Params.image }}
-        <span class="image featured"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></span>
-    {{ end }}
-
-    {{ range .RegularPages }}
-        {{ .Render "shortblock" }}
-    {{ end }}
-
+    <main class="container">
+        <article class="content">
+            {{ .Content }}
+        </article>
+    </main>
 {{ end }}

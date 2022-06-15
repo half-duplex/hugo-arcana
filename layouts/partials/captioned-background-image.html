@@ -1,0 +1,35 @@
+<div
+    class="background-image"
+
+    {{ $urlNotEmpty := and .url (ne .url "") }}
+    {{ $headingVisible := and .heading (.headerImageHeadingVisible | default true) }}
+
+    {{ if or $urlNotEmpty $headingVisible }}
+        style ="
+            {{ with .height }} height: {{ . }}; {{ end }}
+            {{ if $urlNotEmpty }}
+                background-image: 
+                    linear-gradient(
+                        {{ .gradientDirection | default "to right" }},
+                        {{ .gradientStartColor | default "#00000000" }} {{ .gradientStartPosition | default "0" }},
+                        {{ with .gradientMidPosition }} {{ . }}, {{ end }}
+                        {{ .gradientFinishColor | default "#00000000" }} {{ .gradientFinishPosition | default "100%" }}
+                    ),
+                    url({{ .url | relURL }});
+                background-position: {{ with .backgroundPosition }} {{ . }}; {{ else }} left center; {{ end }}
+                {{ with .backgroundColor }} background-color: {{ . }}; {{ end }}
+                {{ with .backgroundSize }} background-size: {{ . }}; {{ end }}
+            {{ end }}
+        "
+    {{ end }}
+>
+
+    {{ if $headingVisible }}
+        <div class="container">
+            <h1>{{ .heading }}</h1>
+            {{ with .subheading }}
+                <p>{{ . }}</p>
+            {{ end }}
+        </div>
+    {{ end }}
+</div>

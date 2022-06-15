@@ -1,0 +1,9 @@
+{{ if or .ctx.Content }}
+    <div class="page-content container">
+        {{ with .ctx.Content }}
+            <article class="content">
+                {{ . }}
+            </article>
+        {{ end }}
+    </section>
+{{ end }}

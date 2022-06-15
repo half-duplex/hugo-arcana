@@ -1,6 +1,6 @@
 <div id="titleBar">
     <a href="#navPanel" class="toggle"></a>
-    <span class="title">{{ .Site.Title }}</span>
+    <span class="title">{{ .Site.Title }} | {{ .Page.Title }}</span>
 </div>
 
 <div id="header" >
@@ -12,57 +12,64 @@
         </div>
         
         <div id="menuNav">
-            <ul>
-                {{- range .Site.Menus.main }}
-                    <li class="{{ if or ($.Page.IsMenuCurrent "main" .) ($.Page.HasMenuCurrent "main" .) }}current{{ end }}">
-                        <a href="{{ .URL | default "#" }}">{{ .Name }}</a>
-                        {{- if .HasChildren -}}
-                        <ul>
+            {{- range .Site.Menus.main }}
+                <div class="{{ if or ($.Page.IsMenuCurrent "main" .) ($.Page.HasMenuCurrent "main" .) }}current{{ end }}">
+                    <a href="{{ .URL | default "#" }}">{{ .Name }}</a>
+                    {{- if .HasChildren -}}
+                        <div>
                             {{- range .Children }}
-                            <li class="{{ if or ($.Page.IsMenuCurrent "main" .) ($.Page.HasMenuCurrent "main" .) }}current{{ end }}">
-                                <a href="{{ .URL | default "#" }}">{{ .Name }}</a>
-                                {{- if .HasChildren -}}
-                                <ul>
-                                    {{- range .Children }}
-                                    <li class="{{ if or ($.Page.IsMenuCurrent "main" .) ($.Page.HasMenuCurrent "main" .) }}current{{ end }}">
-                                        {{/* aoeu fix 'current' thing */}}
-                                        <a href="{{ .URL | default "#" }}">{{ .Name }}</a>
-                                    {{- end }}
-                                </ul>
-                                {{- end -}}
+                                <div class="{{ if or ($.Page.IsMenuCurrent "main" .) ($.Page.HasMenuCurrent "main" .) }}current{{ end }}">
+                                    <a href="{{ .URL | default "#" }}">{{ .Name }}</a>
+                                    {{- if .HasChildren -}}
+                                        <div>
+                                            {{- range .Children }}
+                                                <div class="{{ if or ($.Page.IsMenuCurrent "main" .) ($.Page.HasMenuCurrent "main" .) }}current{{ end }}">
+                                                    {{/* aoeu fix 'current' thing */}}
+                                                    <a href="{{ .URL | default "#" }}">{{ .Name }}</a>
+                                                </div>
+                                            {{- end }}
+                                        </div>
+                                    {{- end -}}
+                                </div>
                             {{- end }}
-                        </ul>
-                        {{- end -}}
-                {{- end }}
-            </ul>
+                        </div>
+                    {{- end -}}
+                </div>
+            {{- end }}
         </div>
 
         <div id="emptyNav"></div>
     </nav>
 
+    {{ $title := .Title}}
 
-    {{ with .Params.headerImageUrl }}
-        {{ $getMatchResourceUrlParameters := newScratch }}
-        {{ $getMatchResourceUrlParameters.Set "context" $ }}
-        {{ $getMatchResourceUrlParameters.Set "resourceName" . }}
-        {{ $getMatchResourceUrlParameters.Set "id" $.Title }}
-        {{ $headerImageUrl := partial "get-match-resource-url.html" $getMatchResourceUrlParameters }}
+    {{ if or .Params.headerImageUrl $title }}
 
-        {{ partial "background-image.html"
+        {{ $headerImageUrl := "" }}
+        {{ if .Params.headerImageUrl }}
+            {{ $getMatchResourceUrlParameters := newScratch }}
+            {{ $getMatchResourceUrlParameters.Set "context" . }}
+            {{ $getMatchResourceUrlParameters.Set "resourceName" .Params.headerImageUrl }}
+            {{ $getMatchResourceUrlParameters.Set "id" .Title }}
+            {{ $headerImageUrl = partial "get-match-resource-url.html" $getMatchResourceUrlParameters }}
+        {{ end }}
+
+        {{ partial "captioned-background-image.html"
             (dict 
                 "content" .
                 "url" $headerImageUrl
-                "backgroundPosition" $.Params.headerImageBackgroundPosition
-                "backgroundColor" $.Params.headerImageBackgroundColor
-                "backgroundSize" $.Params.headerImageBackgroundSize
-                "gradientStartColor" $.Params.headerImageGradientStartColor
-                "gradientStartPosition" $.Params.headerImageGradientStartPosition
-                "gradientMidPosition" $.Params.headerImageGradientMidPosition
-                "gradientFinishColor" $.Params.headerImageGradientFinishColor
-                "gradientFinishPosition" $.Params.headerImageGradientFinishPosition
-                "heading" $.Params.headerImageHeading
-                "subheading" $.Params.headerImageSubHeading
-                "height" $.Params.headerImageHeight
+                "backgroundPosition" .Params.headerImageBackgroundPosition
+                "backgroundColor" .Params.headerImageBackgroundColor
+                "backgroundSize" .Params.headerImageBackgroundSize
+                "gradientStartColor" .Params.headerImageGradientStartColor
+                "gradientStartPosition" .Params.headerImageGradientStartPosition
+                "gradientMidPosition" .Params.headerImageGradientMidPosition
+                "gradientFinishColor" .Params.headerImageGradientFinishColor
+                "gradientFinishPosition" .Params.headerImageGradientFinishPosition
+                "headerImageHeadingVisible" .Params.headerImageHeadingVisible
+                "heading" $title
+                "subheading" .Params.headerImageSubHeading
+                "height" .Params.headerImageHeight
             )
         }}
     {{ end }}
