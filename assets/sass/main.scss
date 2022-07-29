@@ -6,6 +6,7 @@
 @import 'libs/html-grid';
 @import url("css/fontawesome-all.min.css");
 @import url("css/font-source-sans-pro.css");
+@import 'libs/custom_vars.scss';
 
 /*
     Arcana by HTML5 UP
@@ -109,7 +110,7 @@
         }
 
     body {
-        background: _palette(bg) url('images/bg01.png');
+        background: _palette(bg-bold) url('images/bg01.png');
 
         // Stops initial animations until page loads.
             &.is-preload {
@@ -330,7 +331,7 @@
         background: #fff;
         border: solid 1px _palette(border);
         border-radius: _size(radius);
-        color: inherit;
+        color: _palette(fg-bold);
         display: block;
         outline: 0;
         padding: 0.75em;
@@ -458,7 +459,7 @@
             width: 5em;
             height: 5em;
             line-height: 5em;
-            box-shadow: 0 0 0 7px white, 0 0 0 8px _palette(border);
+            box-shadow: 0 0 0 7px _palette(accent, fg), 0 0 0 8px _palette(border);
             margin: 0 0 2em 0;
 
             &:before {
@@ -672,9 +673,9 @@
             }
 
             thead {
-                background-color: #555555;
+                background-color: _palette(obscure, bg-light);
                 @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15))', 'url("images/bg01.png")'));
-                color: #fff;
+                color: _palette(accent, fg);
             }
 
             tfoot {
@@ -720,15 +721,15 @@
         }
 
         &.alt {
-            background-color: #555555;
-            color: #fff;
+            background-color: _palette(obscure, bg-light);
+            color: _palette(accent, fg);
 
             &:hover {
-                background-color: lighten(#555555, 5);
+                background-color: lighten(_palette(obscure, bg-light), 5);
             }
 
             &:active {
-                background-color: darken(#555555, 5);
+                background-color: darken(_palette(obscure, bg-light), 5);
             }
         }
 
@@ -784,7 +785,7 @@
     #header {
         text-align: center;
         padding: 3em 0 0 0;
-        background-color: #fff;
+        background-color: _palette(bg);
         background-image:           url('images/bg02.png'),     url('images/bg02.png'),     url('images/bg01.png');
         background-position:        top left,                   top left,                   top left;
         background-size:            100% 6em,                   100% 6em,                   auto;
@@ -804,7 +805,7 @@
 
     #nav {
         cursor: default;
-        background-color: #333;
+        background-color: _palette(obscure, bg);
         @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3))', 'url("images/bg01.png")'));
         padding: 0;
 
@@ -826,7 +827,7 @@
                 margin-left: 1em;
 
                 a {
-                    color: #c0c0c0;
+                    color: _palette(obscure, fg);
                     text-decoration: none;
                     border: 0;
                     display: block;
@@ -839,7 +840,7 @@
 
                 &:hover {
                     a {
-                        color: #fff;
+                        color: _palette(accent, fg);
                     }
                 }
 
@@ -861,13 +862,13 @@
                     }
 
                     a {
-                        color: #fff;
+                        color: _palette(accent, fg);
                     }
                 }
 
                 &.active {
                     a {
-                        color: #fff;
+                        color: _palette(accent, fg);
                     }
 
                     &.current {
@@ -888,9 +889,9 @@
 
     .dropotron {
         @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0))', 'url("images/bg01.png")'));
-        background-color: #333;
+        background-color: _palette(obscure, bg);
         border-radius: _size(radius);
-        color: #fff;
+        color: _palette(accent, bg);
         min-width: 10em;
         padding: 1em 0;
         text-align: center;
@@ -902,7 +903,7 @@
             padding: 0 1.1em 0 1em;
 
             > a {
-                color: #c0c0c0;
+                color: _palette(obscure, fg);
                 text-decoration: none;
                 border: 0;
             }
@@ -910,7 +911,7 @@
             &.active,
             &:hover {
                 > a {
-                    color: #fff;
+                    color: _palette(accent, fg);
                 }
             }
         }
@@ -940,9 +941,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: #212121;
             background: rgba(27,27,27,0.75);
-            color: #fff;
+            color: _palette(accent, fg);
             padding: 1.5em 0;
 
             h2 {
@@ -956,7 +956,7 @@
                 }
 
                 a {
-                    border-bottom-color: transparentize(#fff, 0.5);
+                    border-bottom-color: transparentize(_palette(accent, fg), 0.5);
 
                     &:hover {
                         border-bottom-color: transparent;
@@ -977,11 +977,11 @@
         padding: 5em 0 3em 0;
 
         &.style1 {
-            background: #fff;
+            background: _palette(bg);
         }
 
         &.style2 {
-            background-color:       #fff;
+            background-color:       _palette(bg);
             background-image:       url('images/bg02.png'),         url('images/bg03.png'),         url('images/bg01.png');
             background-position:    top left,                       bottom left,                    top left;
             background-size:        100% 6em,                       100% 6em,                       auto;
@@ -1315,7 +1315,7 @@
                 top: 0;
                 width: 100%;
                 z-index: _misc(z-index-base) + 1;
-                background-color: #333;
+                background-color: _palette(obscure, bg);
                 @include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3))', 'url("images/bg01.png")'));
                 height: 44px;
                 line-height: 44px;
@@ -1326,7 +1326,7 @@
                     position: relative;
                     font-weight: 600;
                     text-align: center;
-                    color: #fff;
+                    color: _palette(accent, fg);
                     z-index: 1;
 
                     em {
@@ -1352,7 +1352,7 @@
                         line-height: inherit;
                         text-align: center;
                         width: 44px;
-                        color: #fff;
+                        color: _palette(accent, fg);
                         opacity: 0.5;
                     }
 
@@ -1365,7 +1365,7 @@
             }
 
             #navPanel {
-                background-color: #1f1f1f;
+                background-color: _palette(obscure, bg-bold);
                 box-shadow: inset -1px 0 3px 0 rgba(0,0,0,0.5);
                 @include vendor('background-image', ('linear-gradient(left, rgba(0,0,0,0) 75%, rgba(0,0,0,0.15))', 'url("images/bg01.png")'));
                 @include vendor('backface-visibility', 'hidden');
@@ -1383,7 +1383,7 @@
                 .link {
                     border-bottom: 0;
                     border-top: solid 1px rgba(255,255,255,0.05);
-                    color: #888;
+                    color: darken(_palette(accent, fg), 46.5);
                     display: block;
                     height: 48px;
                     line-height: 48px;
@@ -1395,7 +1395,7 @@
                     }
 
                     &.depth-0 {
-                        color: #fff;
+                        color: _palette(accent, fg);
                     }
 
                     .indent-1 { display: inline-block; width: 1em; }
