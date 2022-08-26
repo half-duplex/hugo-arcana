@@ -6,3 +6,6 @@
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 {{- partial "analytics/google-tag-manager/head.html" . -}}
 {{- partial "head/custom.html" . -}}
+{{- if .Site.IsMultiLingual -}}
+    {{- partial "head/languages.html" . -}}
+{{- end -}}

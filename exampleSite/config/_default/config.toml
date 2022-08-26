@@ -4,6 +4,15 @@ title = "Arcana for Hugo"
 theme = "hugo-arcana"
 copyright = "© Untitled. All rights reserved"
 
+defaultContentLanguage = "en"
+[languages]
+    [languages.en]
+        languageName = "English"
+        weight = 1
+    [languages.de]
+        languageName = "Deutsch"
+        weight = 2
+
 [taxonomies]
     tag = "tags"
 

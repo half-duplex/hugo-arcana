@@ -1,0 +1,26 @@
+<li class="dropdown" id="multilingual">
+    <a class="dropbtn language link depth-0" href="#" title="{{ T "language_select" }}" id="languageDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+    <i class="fas fa-fw fa-globe"></i>
+    <span class="d-lg-none">{{.Site.Language.Lang}}</span>
+    </a>
+    <ul id="languageContent" class="dropdown-content" aria-labelledby="languageDropdown">
+        <!-- Use the link of the translation of the current page if exists
+             else use the link of the translated website (e.g. /en/) -->
+        {{ $current_page := . }}
+        {{- range $.Site.Home.AllTranslations }}
+            {{- $translation_link := .RelPermalink }}
+            {{- $lang := .Language.Lang }}
+            {{- range $current_page.AllTranslations }}
+                <!-- Overwrite if language code is equal -->
+                {{- if eq .Language.Lang $lang -}}
+                    {{- $translation_link =  .RelPermalink -}}
+                {{- end -}}
+            {{- end }}
+        <li>
+            <a class="dropdown-item link depth-1{{ if eq $.Lang .Language.Lang }} selected{{ end }}" href="{{ $translation_link }}">
+                {{ .Language.LanguageName }}
+            </a>
+        </li>
+        {{- end -}}
+    </ul>
+</li>
