@@ -1,0 +1,38 @@
+banner:
+  enable: true
+  image: "images/banner.jpg"
+  contents: "**Arcana:** _A responsive site template freebie by [HTML5 UP](https://html5up.net/)_"
+  button:
+    contents: "Learn More"
+    url: "#"
+items:
+  - type: highlights
+    items_per_row: 3
+    items:
+    - title: This Is Important
+      icon: fa-paper-plane
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    - title: Also Important
+      icon: fa-pencil-alt
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    - title: Probably Important
+      icon: fa-wrench
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+  - type: heading
+    heading: A gigantic heading you can use for whatever
+    contents: With a much smaller subtitle hanging out just below it
+  - type: posts
+    #heading: Recent Posts
+    content_type: posts
+    max: 4
+  - type: cta
+    contents: Are you ready to continue your quest?
+    button:
+      contents: Insert Coin
+      url: "#"
