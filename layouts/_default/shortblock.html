@@ -4,7 +4,7 @@
         <div class="inner">
             <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
             {{ if .Site.Params.show_post_dates | default true }}
-                {{- with .Date }}<time>{{ .Format "Jan 2, 2006" }}</time>{{ end }}
+                {{- with .Date }}<time>{{ . | time.Format ":date_medium" }}</time>{{ end }}
             {{ end }}
             <p>
                 {{ with .Description }}
