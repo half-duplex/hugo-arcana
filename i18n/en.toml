@@ -1,0 +1,14 @@
+[contact_name]
+other = "Name"
+
+[contact_email]
+other = "Email"
+
+[contact_message]
+other = "Message"
+
+[contact_submit]
+other = "Send Message"
+
+[language_select]
+other = "Select language"

@@ -9,13 +9,17 @@
         <div id="page-wrapper">
             {{- partial "header.html" . }}
 
-            {{- if .Site.Data.homepage.banner.enable }}
-                {{- partial "homepage/banner.html" .Site.Data.homepage.banner -}}
-            {{- end }}
+            <!-- Lookup homepage data in language data directory (e.g. data/en/homepage.yml).
+                 Defaults to data/homepage.yml if language specific data was not found. -->
+            {{ with index ( index .Site.Data .Site.Language.Lang | default .Site.Data ) "homepage" }}
+                {{- if .banner.enable }}
+                    {{- partial "homepage/banner.html" .banner -}}
+                {{- end }}
 
-            {{- range .Site.Data.homepage.items }}
-                {{- partial (printf "homepage/blocks/%s.html" .type) (dict "ctx" $ "item" .) }}
-            {{- end }}
+                {{- range .items }}
+                    {{- partial (printf "homepage/blocks/%s.html" .type) (dict "ctx" $ "item" .) }}
+                {{- end }}
+            {{ end }}
 
             {{- partial "footer/footer.html" . -}}
         </div>

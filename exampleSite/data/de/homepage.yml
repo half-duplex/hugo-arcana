@@ -1,0 +1,38 @@
+banner:
+  enable: true
+  image: "images/banner.jpg"
+  contents: "**Arcana:** _Ein responsives Webseite-Vorlagen-Freebie von [HTML5 UP](https://html5up.net/)_"
+  button:
+    contents: "Erfahre mehr"
+    url: "#"
+items:
+  - type: highlights
+    items_per_row: 3
+    items:
+    - title: Das ist wichtig
+      icon: fa-paper-plane
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    - title: Auch wichtig
+      icon: fa-pencil-alt
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    - title: Wahrscheinlich wichtig
+      icon: fa-wrench
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+  - type: heading
+    heading: Eine riesen Überschrift für was auch immer du willst
+    contents: Mit einem viel kleineren Untertitel direkt unterhalb
+  - type: posts
+    #heading: Recent Posts
+    content_type: posts
+    max: 4
+  - type: cta
+    contents: Bist du bereit, deine Aufgabe fortzusetzen?
+    button:
+      contents: Münze einwerfen
+      url: "#"
