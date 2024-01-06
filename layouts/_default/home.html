@@ -11,7 +11,7 @@
 
             <!-- Lookup homepage data in language data directory (e.g. data/en/homepage.yml).
                  Defaults to data/homepage.yml if language specific data was not found. -->
-            {{ with index ( index .Site.Data .Site.Language.Lang | default .Site.Data ) "homepage" }}
+            {{ with index ( index .Site.Data .Site.Language.Lang | default .Site.Data ) (.Param "homepage_data" | default "homepage") }}
                 {{- if .banner.enable }}
                     {{- partial "homepage/banner.html" .banner -}}
                 {{- end }}
