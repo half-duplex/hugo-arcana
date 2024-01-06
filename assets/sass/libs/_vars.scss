@@ -20,7 +20,8 @@
 
 // Palette.
     $palette: (
-        bg: #f7f7f7,
+        bg: #fff,
+        bg-bold: #f7f7f7,
         fg: #474747,
         fg-bold: #4c4c4c,
         fg-light: #999,
@@ -29,5 +30,11 @@
         accent: (
             bg: #37c0fb,
             fg: #fff
+        ),
+        obscure: (
+            bg: #333,
+            bg-light: #555,
+            bg-bold: #1f1f1f,
+            fg: #c0c0c0
         )
     );

@@ -8,7 +8,11 @@
                     <h3>{{ .header }}</h3>
                     <ul class="links">
                         {{- range .links }}
-                            <li><a href="{{ .url }}">{{ .title }}</a>
+                            {{- if .pageref -}}
+                                <li><a href="{{ (site.GetPage .pageref).Permalink }}">{{ .title }}</a>
+                            {{- else -}}
+                                <li><a href="{{ .url }}">{{ .title }}</a>
+                            {{- end -}}
                         {{- end }}
                     </ul>
                 </section>
