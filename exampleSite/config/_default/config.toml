@@ -12,6 +12,9 @@ defaultContentLanguage = "en"
     [languages.de]
         languageName = "Deutsch"
         weight = 2
+    [languages.es]
+        languageName = "Spanish"
+        weight = 3
 
 [taxonomies]
     tag = "tags"
