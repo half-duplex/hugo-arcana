@@ -1,0 +1,14 @@
+[contact_name]
+other = "Nombre"
+
+[contact_email]
+other = "Correo Electrónico"
+
+[contact_message]
+other = "Mensaje"
+
+[contact_submit]
+other = "Enviar Mensaje"
+
+[language_select]
+other = "Seleccionar Idioma"

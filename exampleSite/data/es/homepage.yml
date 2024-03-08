@@ -1,0 +1,38 @@
+banner:
+  enable: true
+  image: "images/banner.jpg"
+  contents: "**Arcana:** _Una plantilla de sitio responsive gratuito por [HTML5 UP](https://html5up.net/)_"
+  button:
+    contents: "Aprenda Más"
+    url: "#"
+items:
+  - type: highlights
+    items_per_row: 3
+    items:
+    - title: Esto Es Importante
+      icon: fa-paper-plane
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    - title: También Importante
+      icon: fa-pencil-alt
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    - title: Probablemente Importante
+      icon: fa-wrench
+      content: >
+        Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl
+        amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+  - type: heading
+    heading: Una cabecera gigante que puedes usar para lo que sea
+    contents: Con un subtítulo mucho mas pequeño colgando justo debajo
+  - type: posts
+    #heading: Recent Posts
+    content_type: posts
+    max: 4
+  - type: cta
+    contents: ¿Estás preparado para continuar tu búsqueda?
+    button:
+      contents: Inserta Moneda
+      url: "#"

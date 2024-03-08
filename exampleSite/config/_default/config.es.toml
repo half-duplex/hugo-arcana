@@ -1,0 +1,80 @@
+[params]
+    description = "Una plantilla para un sitio responsive de estilo empresarial/corporativo."
+    show_post_dates = false
+
+    [[params.social]]
+        title = "Twitter"
+        icon = "fa-twitter"
+        url = "#"
+    [[params.social]]
+        title = "Facebook"
+        icon = "fa-facebook-f"
+        url = "#"
+    [[params.social]]
+        title = "GitHub"
+        icon = "fa-github"
+        url = "#"
+    [[params.social]]
+        title = "LinkedIn"
+        icon = "fa-linkedin-in"
+        url = "#"
+    [[params.social]]
+        title = "Creative Commons"
+        icon = "fa-creative-commons"
+        url = "https://creativecommons.org/"
+
+
+    [params.footer]
+
+        [[params.footer.links]]
+            header = "Links a Cosas"
+        [[params.footer.links.links]]
+            title = "Mattis et quis rutrum"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Suspendisse amet varius"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Sed et dapibus quis"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Rutrum accumsan dolor"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Mattis rutrum accumsan"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Suspendisse varius nibh"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Sed et dapibus mattis"
+            url = "#"
+
+        [[params.footer.links]]
+            header = "Más Links a Cosas"
+        [[params.footer.links.links]]
+            title = "Duis neque nisi dapibus"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Sed et dapibus quis"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Rutrum accumsan sed"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Mattis et sed accumsan"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Duis neque nisi sed"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Sed et dapibus quis"
+            url = "#"
+        [[params.footer.links.links]]
+            title = "Rutrum amet varius"
+            url = "#"
+
+        [params.footer.contact_form]
+            enabled = true
+            header = "Ponte en Contacto"
+            action = ""
