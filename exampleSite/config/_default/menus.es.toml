@@ -1,0 +1,45 @@
+[[main]]
+    name = "Desplegable"
+    weight = 30
+[[main]]
+    parent = "Desplegable"
+    name = "Lorem dolor"
+    weight = 31
+[[main]]
+    parent = "Desplegable"
+    name = "Magna Phasellus"
+    weight = 32
+[[main]]
+    parent = "Desplegable"
+    name = "Etiam sed tempus"
+    weight = 33
+[[main]]
+    parent = "Desplegable"
+    name = "Submenú"
+    weight = 34
+[[main]]
+    parent = "Submenú"
+    name = "Lorem dolor"
+    identifier = "sub-lorem"
+    weight = 35
+[[main]]
+    parent = "Submenú"
+    name = "Phasellus magna"
+    weight = 36
+[[main]]
+    parent = "Submenú"
+    name = "Magna phasellus"
+    weight = 37
+[[main]]
+    parent = "Submenú"
+    name = "Etiam nisl"
+    weight = 38
+[[main]]
+    parent = "Submenú"
+    name = "Veroeros feugiat"
+    identifier = "sub-veroeros"
+    weight = 39
+[[main]]
+    parent = "Desplegable"
+    name = "Veroeros feugiat"
+    weight = 40
