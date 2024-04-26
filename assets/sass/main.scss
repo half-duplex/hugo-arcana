@@ -1377,18 +1377,36 @@
                 height: 44px;
                 line-height: 44px;
                 box-shadow: 0 4px 0 0 _palette(accent, bg);
+                text-align: center;
 
                 .title {
-                    display: block;
+                    display: inline-block;
                     position: relative;
                     font-weight: 600;
                     text-align: center;
                     color: _palette(accent, fg);
                     z-index: 1;
-
-                    em {
-                        font-style: normal;
-                        font-weight: 300;
+                    
+                    h1 {
+                        @include breakpoint('<=narrower'){
+                            margin: 0;
+                        }
+                        
+                        a {
+                            border-bottom: none;
+                            
+                            em {
+                                font-style: normal;
+                                font-weight: 300;
+                            }
+                            
+                            img {
+                                position: relative;
+                                height: 44px;
+                                padding-bottom: 4px;
+                                vertical-align: middle;
+                            }
+                        } 
                     }
                 }
 

@@ -2,12 +2,12 @@
     {{ if .Site.IsMultiLingual }}
         {{- partial "languages.html" . }}
     {{- end -}}
-    <h1><a href="{{ .Site.BaseURL }}" id="logo">
+    <div id="logo-wrapper"><h1><a href="{{ .Site.BaseURL }}" id="logo">
         {{- if .Site.Data.globalheader.image }}
             <img src="{{ .Site.Data.globalheader.image | relURL }}" alt="{{ .Site.Data.globalheader.image_alt }}" />
         {{- end }}
         {{ with .Site.Data.globalheader.title }}{{ . | markdownify }}{{ else }}{{ .Site.Title }}{{ end }}
-    </a></h1>
+    </a></h1></div>
 
     <nav id="nav">
         <ul>
