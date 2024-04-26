@@ -1377,9 +1377,10 @@
                 height: 44px;
                 line-height: 44px;
                 box-shadow: 0 4px 0 0 _palette(accent, bg);
+                text-align: center;
 
                 .title {
-                    display: block;
+                    display: inline-block;
                     position: relative;
                     font-weight: 600;
                     text-align: center;
@@ -1389,6 +1390,17 @@
                     em {
                         font-style: normal;
                         font-weight: 300;
+                    }
+
+                    a {
+                        border-bottom: none;
+
+                        img {
+                            height: 44px;
+                            padding-bottom: 4px;
+                            padding-top: 4px;
+                            vertical-align: middle;
+                        }
                     }
                 }
 
