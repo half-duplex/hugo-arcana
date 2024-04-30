@@ -21,7 +21,7 @@ defaultContentLanguage = "en"
 
 [params]
     description = "A business/corporate style responsive site template."
-    images = ['/images/metaimage.jpg'] 
+    images = ['images/metaimage.jpg']
     show_post_dates = false
 
     [[params.social]]
