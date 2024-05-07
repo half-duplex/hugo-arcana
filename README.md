@@ -28,8 +28,10 @@ are located in the `i18n` directory.
 Please feel free to contribute more languages into this directory.
 
 ## Showcase
-If you use this theme, let me know, and I'll list your site here!
+If you use this theme and would like to be listed here, add your site in a pull
+request!
 - [Theme Demo Site](https://sec.gd/hugo/themes/arcana/)
+- [Alichampi](https://alichampi.com/)
 - [Odesa Regional Organization of Red Cross Society of Ukraine](https://od.redcross.org.ua/)
 
 ## Contributing
