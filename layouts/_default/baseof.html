@@ -17,7 +17,7 @@
                         {{- with .Params.sidebar_left }}
                             <div class="col-{{ cond (eq $sidebar_count 1) 4 3 }} col-12-narrower">
                                 <div id="sidebar">
-                                    {{- partial (printf "sidebar/%s.html" .) . }}
+                                    {{- partial (printf "sidebar/%s.html" .) $ }}
                                 </div>
                             </div>
                         {{- end }}
@@ -35,7 +35,7 @@
                         {{- with .Params.sidebar_right }}
                             <div class="col-{{ cond (eq $sidebar_count 1) 4 3 }} col-12-narrower">
                                 <div id="sidebar">
-                                    {{- partial (printf "sidebar/%s.html" .) . }}
+                                    {{- partial (printf "sidebar/%s.html" .) $ }}
                                 </div>
                             </div>
                         {{- end }}
