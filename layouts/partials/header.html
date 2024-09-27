@@ -1,5 +1,5 @@
 <div id="header">
-    {{ if .Site.IsMultiLingual }}
+    {{ if hugo.IsMultilingual }}
         {{- partial "languages.html" . }}
     {{- end -}}
     <div id="logo-wrapper"><h1><a href="{{ .Site.BaseURL }}" id="logo">
