@@ -6,13 +6,23 @@ description = "A Hugo port of the HTML5 UP Arcana template"
 homepage = "https://github.com/half-duplex/hugo-arcana"
 demosite = "https://sec.gd/hugo/themes/arcana/"
 
-tags = ["blog","business","html5up","responsive"]
-features = ["blog"]
+tags = [
+    "blog",
+    "company",
+    "html5up",
+    "multilingual",
+    "responsive",
+]
+features = [
+    "blog",
+    "multilingual",
+]
+min_version = 0.124
 
 [author]
   name = "Trevor Bergeron"
   homepage = "https://sec.gd/"
 
 [original]
-  name = "@ajlkn"
-  homepage = "https://html5up.net/"
+  author = "ajlkn"
+  homepage = "https://html5up.net/arcana"
