@@ -17,7 +17,7 @@ features = [
     "blog",
     "multilingual",
 ]
-min_version = 0.124
+min_version = 0.128
 
 [author]
   name = "Trevor Bergeron"
