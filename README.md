@@ -33,6 +33,7 @@ request!
 - [Theme Demo Site](https://sec.gd/hugo/themes/arcana/)
 - [Alichampi](https://alichampi.com/)
 - [Odesa Regional Organization of Red Cross Society of Ukraine](https://od.redcross.org.ua/)
+- [BOMnipotent Supply Chain Security Hosting](https://www.bomnipotent.de)
 
 ## Contributing
 Pull requests welcome! This is my first Hugo theme, and I expect there are some
