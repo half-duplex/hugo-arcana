@@ -31,7 +31,7 @@ items:
     heading: But what's this page about?
     contents: On this card I can give you some more information about the template, and how you can use it to create your own site. Look, there's an image!
     image: /images/metaimage.jpg
-    imageAlt: "Image alternative text"
+    image_alt: "Image alternative text"
   - type: posts
     #heading: Recent Posts
     content_type: posts

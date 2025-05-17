@@ -31,7 +31,7 @@ items:
     heading: ¿Pero de qué trata esta página?
     contents: En esta tarjeta te doy más información sobre la plantilla y cómo puedes usarla para crear tu propio sitio. ¡Mira, hay una imagen!
     image: /images/metaimage.jpg
-    imageAlt: "Texto alternativo de la imagen"
+    image_alt: "Texto alternativo de la imagen"
   - type: posts
     #heading: Recent Posts
     content_type: posts
