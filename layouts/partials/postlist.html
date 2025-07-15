@@ -2,7 +2,9 @@
     {{ range . }}
         <section class="col-6 col-12-narrower">
             <div class="box post">
+                {{- if .Params.image }}
                 <a href="{{ .RelPermalink }}" class="image left"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></a>
+                {{ end }}
                 <div class="inner">
                     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                     {{ with .Date }}<p class="date">{{ . | time.Format ":date_medium" }}</p>{{ end }}
