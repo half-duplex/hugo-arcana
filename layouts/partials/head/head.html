@@ -4,6 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+{{- if .IsTranslated -}}
+    {{- range $index, $trans := .AllTranslations }}
+        {{- if eq $index 0 }}
+<link href="{{ $trans.Permalink }}" rel="alternate" hreflang="x-default">
+        {{- end }}
+<link href="{{ $trans.Permalink }}" rel="alternate" hreflang="{{ $trans.Language }}">
+    {{- end }}
+{{- end }}
 {{- partial "analytics/google-tag-manager/head.html" . -}}
 {{- partial "head/custom.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
