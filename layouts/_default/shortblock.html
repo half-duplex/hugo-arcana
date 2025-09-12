@@ -1,20 +1,27 @@
 <section class="col-6 col-12-narrower">
     <div class="box post">
         {{- if .Params.image }}
-        <a href="{{ .RelPermalink }}" class="image left"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></a>
+            <a href="{{ .RelPermalink }}" class="image left">
+                {{- $alt := .Params.image_alt -}}
+                {{- with $img := resources.Get .Params.image -}}
+                    <img src="{{ .RelPermalink }}" alt="{{- $alt -}}" />
+                {{- else -}}
+                    <img src="{{ .Params.image | relURL }}" alt="{{- $alt -}}" />
+                {{- end -}}
+                </a>
+            <div class="inner">
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                {{ if .Site.Params.show_post_dates | default true }}
+                    {{- with .Date }}<time>{{ . | time.Format ":date_medium" }}</time>{{ end }}
+                {{ end }}
+                <p>
+                    {{ with .Description }}
+                        {{- . }}
+                    {{- else }}
+                        {{- .Summary }}
+                    {{- end }}
+                </p>
+            </div>
         {{ end }}
-        <div class="inner">
-            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            {{ if .Site.Params.show_post_dates | default true }}
-                {{- with .Date }}<time>{{ . | time.Format ":date_medium" }}</time>{{ end }}
-            {{ end }}
-            <p>
-                {{ with .Description }}
-                    {{- . }}
-                {{- else }}
-                    {{- .Summary }}
-                {{- end }}
-            </p>
-        </div>
     </div>
 </section>
