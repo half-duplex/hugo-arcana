@@ -1,24 +1,50 @@
 {{ define "main" }}
-    <header>
-        <h2>{{ .Title }}</h2>
-        {{ with .Description -}}
-            <p>{{ . }}</p>
+  <header>
+    <h2>{{ .Title }}</h2>
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{- if .Params.image }}
+    {{- $alt := .Params.image_alt | default .Title -}}
+    {{- with $img := resources.Get .Params.image }}
+      {{ $image_options := $.Site.Params.image_options | default "webp q85 lanczos photo" }}
+      <picture class="image featured">
+        {{- $breakpoints := slice 1920 1600 1366 900 600 360 -}}
+        {{- range $bp := $breakpoints }}
+          {{- if le $bp .Width }}
+            {{- with .Resize (printf "%dx %s" $bp $image_options) }}
+              <source srcset="{{ .RelPermalink }}" type="{{ .MediaType.Type }}" media="(max-width: {{ $bp }}px)">
+            {{- end }}
+          {{- end }}
         {{- end }}
-    </header>
 
-    {{- if .Params.image }}
-    <span class="image featured">
-	{{- $alt := .Params.image_alt -}}
-	{{- with $img := resources.Get .Params.image -}}
-        <img src="{{ .RelPermalink }}" alt="{{- $alt -}}" />
-	{{- else -}}
-        <img src="{{ .Params.image | relURL }}" alt="{{- $alt -}}" />
-	{{- end -}}
-    </span>
-    {{ end }}
+        {{- /* Fallback: full-sized optimized image */ -}}
+        {{- with .Resize (printf "%dx %s" .Width $image_options) }}
+          <img 
+            src="{{ .RelPermalink }}" 
+            srcset="{{- range $bp := $breakpoints -}}
+                      {{- with $.Resize (printf "%dx %s" $bp $image_options) -}}
+                        {{ .RelPermalink }} {{ .Width }}w,
+                      {{- end -}}
+                    {{- end -}}"
+            sizes="(max-width: 1920px) 100vw, 1920px"
+            alt="{{ $alt }}" 
+            width="{{ .Width }}" 
+            height="{{ .Height }}" 
+            loading="lazy"
+            class="img-fluid" />
+        {{- end }}
+      </picture>
+    {{- else }}
+      <span class="image featured">
+        <img src="{{ .Params.image | relURL }}" alt="{{ $alt }}">
+      </span>
+    {{- end }}
+  {{ end }}
 
-    {{ range .RegularPages }}
-        {{ .Render "shortblock" }}
-    {{ end }}
-
+  {{ range .RegularPages }}
+    {{ .Render "shortblock" }}
+  {{ end }}
 {{ end }}

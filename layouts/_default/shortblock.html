@@ -1,27 +1,54 @@
 <section class="col-6 col-12-narrower">
     <div class="box post">
-        {{- if .Params.image }}
-            <a href="{{ .RelPermalink }}" class="image left">
-                {{- $alt := .Params.image_alt -}}
-                {{- with $img := resources.Get .Params.image -}}
-                    <img src="{{ .RelPermalink }}" alt="{{- $alt -}}" />
-                {{- else -}}
-                    <img src="{{ .Params.image | relURL }}" alt="{{- $alt -}}" />
-                {{- end -}}
-                </a>
-            <div class="inner">
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                {{ if .Site.Params.show_post_dates | default true }}
-                    {{- with .Date }}<time>{{ . | time.Format ":date_medium" }}</time>{{ end }}
-                {{ end }}
-                <p>
-                    {{ with .Description }}
-                        {{- . }}
-                    {{- else }}
-                        {{- .Summary }}
+        <a href="{{ .RelPermalink }}" class="image left">
+            {{- $alt := .Params.image_alt | default .Title -}}
+            {{- with $img := resources.Get .Params.image }}
+                {{ $image_options := $.Site.Params.image_options | default "webp q85 lanczos photo" }}
+                {{- $breakpoints := slice 800 600 400 300 -}}
+                {{- $orig := $img -}}
+
+                <picture>
+                    {{- range $bp := $breakpoints }}
+                        {{- if le $bp $orig.Width }}
+                            {{- with $orig.Resize (printf "%dx %s" $bp $image_options) }}
+                                <source srcset="{{ .RelPermalink }}"
+                                        type="{{ .MediaType.Type }}"
+                                        media="(max-width: {{ $bp }}px)">
+                            {{- end }}
+                        {{- end }}
                     {{- end }}
-                </p>
-            </div>
-        {{ end }}
+
+                    {{- /* Fallback main image (max 800px) */ -}}
+                    {{- with $orig.Resize (printf "800x %s" $image_options) }}
+                        <img
+                          src="{{ .RelPermalink }}"
+                          srcset="{{- range $bp := $breakpoints -}}
+                                    {{- with $orig.Resize (printf "%dx %s" $bp $image_options) -}}
+                                      {{ .RelPermalink }} {{ .Width }}w,
+                                    {{- end -}}
+                                  {{- end -}}"
+                          sizes="(max-width: 800px) 100vw, 300px"
+                          alt="{{ $alt }}"
+                          width="{{ .Width }}"
+                          height="{{ .Height }}"
+                          loading="lazy"
+                          class="img-fluid" />
+                    {{- end }}
+                </picture>
+            {{- end }}
+        </a>
+
+        <div class="inner">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ if .Site.Params.show_post_dates | default true }}
+                {{- with .Date }}<time>{{ . | time.Format ":date_medium" }}</time>{{ end }}
+            {{ end }}
+        <p>
+            {{ with .Description }}
+                {{- . }}
+            {{- else }}
+                {{- .Summary }}
+            {{- end }}
+        </p>
     </div>
 </section>
