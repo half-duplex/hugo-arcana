@@ -1,26 +1,11 @@
-{{/* Bundle all JavaScript files for better performance */}}
-{{ $js := slice }}
-{{ $js = $js | append (resources.Get "js/jquery.min.js") }}
-{{ $js = $js | append (resources.Get "js/jquery.dropotron.min.js") }}
-{{ $js = $js | append (resources.Get "js/browser.min.js") }}
-{{ $js = $js | append (resources.Get "js/breakpoints.min.js") }}
-{{ $js = $js | append (resources.Get "js/util.js") }}
-{{ $js = $js | append (resources.Get "js/main.js") }}
+{{- $js := slice
+    (resources.Get "js/jquery.min.js")
+    (resources.Get "js/jquery.dropotron.min.js")
+    (resources.Get "js/browser.min.js")
+    (resources.Get "js/breakpoints.min.js")
+    (resources.Get "js/util.js")
+    (resources.Get "js/main.js")
+-}}
 
-{{ $bundle := $js | resources.Concat "js/bundle.js" }}
-{{ with $bundle }}
-  {{$opts := dict
-    "minify" (not hugo.IsDevelopment)
-    "sourceMap" (cond hugo.IsDevelopment "external" "")
-    "targetPath" "js/bundle.js"
-  }}
-  {{ with . | js.Build $opts }}
-    {{ if hugo.IsDevelopment }}
-      <script src="{{ .RelPermalink }}"></script>
-    {{ else }}
-      {{ with . | fingerprint }}
-        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+{{- $bundle := $js | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+<script src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous"></script>
