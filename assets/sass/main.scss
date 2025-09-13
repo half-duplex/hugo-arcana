@@ -1726,4 +1726,7 @@
 
     }
 
+{{ with (index ( index .Site.Data .Site.Language.Lang | default .Site.Data ) "homepage" "header" "image") -}}
+  $header-image: "{{- . -}}";
+{{- end }}
 @import 'custom.scss';
