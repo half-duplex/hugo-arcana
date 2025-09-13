@@ -13,7 +13,7 @@
 	{{- $alt := .Title -}}
 	{{- $img := resources.Get .Params.image -}}
 	{{- with $img -}}
-	    {{ $image_options := $.Site.Params.image_options | default "webp q90 lanczos photo" -}}
+	    {{ $image_options := $.Site.Params.image_options | default "webp q85 lanczos photo" -}}
 	    <picture>
 	    {{ range $width := slice 1920 1600 1366 900 600 360 }}
 	    {{ if le $width $img.Width }}
