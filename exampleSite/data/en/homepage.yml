@@ -27,6 +27,11 @@ items:
   - type: heading
     heading: A gigantic heading you can use for whatever
     contents: With a much smaller subtitle hanging out just below it
+  - type: card
+    heading: But what's this page about?
+    contents: On this card I can give you some more information about the template, and how you can use it to create your own site. Look, there's an image!
+    image: /images/metaimage.jpg
+    image_alt: "Image alternative text"
   - type: posts
     #heading: Recent Posts
     content_type: posts

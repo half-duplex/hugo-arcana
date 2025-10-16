@@ -1,0 +1,20 @@
+<section class="wrapper style1" id="{{ .item.heading | urlize }}">
+    <div class="card-container">
+        <div class="card-content">
+            <header>
+                <h2>{{ .item.heading }}</h2>
+                {{- $html := .item.contents | markdownify }}
+                {{- if (findRE "<p(?: [^>]*)?>" $html) }}
+                    {{ $html }}
+                {{- else -}}
+                    <p>{{ $html }}</p>
+                {{- end }}
+            </header>
+        </div>
+        {{- if .item.image }}
+            <div class="card-image">
+                <img src="{{ .item.image }}" alt="{{ .item.image_alt | default "Card image" }}">
+            </div>
+        {{- end }}
+    </div>
+</section>
