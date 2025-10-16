@@ -30,7 +30,7 @@ items:
   - type: card
     heading: Aber worum geht es auf dieser Seite überhaupt?
     contents: Auf dieser Karte kann ich Euch mehr Informationen über das Template geben, und darüber, wie Ihr es nutzen könnte, um Eure eigene Seite zu erstellen. Schaut mal, da ist ein Bild!
-    image: /images/metaimage.jpg
+    image: images/metaimage.jpg
     image_alt: "Alternativer Bildtext"
   - type: posts
     #heading: Recent Posts
