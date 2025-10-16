@@ -8,8 +8,28 @@
         {{ partial "tags.html" . }}
     </header>
 
-    {{- if .Params.image }}
-        <span class="image featured"><img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" /></span>
+    {{- if .Params.image -}}
+    <span class="image featured">
+	{{- $alt := .Title -}}
+	{{- $img := resources.Get .Params.image -}}
+	{{- with $img -}}
+	    {{ $image_options := $.Site.Params.image_options | default "webp q85 lanczos photo" -}}
+	    <picture>
+	    {{ range $width := slice 1920 1600 1366 900 600 360 }}
+	    {{ if le $width $img.Width }}
+		{{- with $img.Resize ( printf "%dx %s" $width $image_options ) }}
+		<source srcset="{{ .RelPermalink }}" type="{{- .MediaType.Type -}}" media="(max-width: {{- .Width -}}px)">
+		{{- end }}
+	    {{- end }}
+	    {{- end }}
+	    {{- with $img.Resize ( printf "%dx%d %s" $img.Width $img.Height $image_options ) -}}
+		<img loading="lazy" src='{{ .RelPermalink }}' type="{{- .MediaType.Type -}}" width="{{- .Width -}}" height="{{- .Height -}}" class='img-fluid' alt='{{ $alt }}' />
+	    {{- end -}}
+	    </picture>
+	{{- else -}}
+        <img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt }}" />
+	{{- end -}}
+    </span>
     {{ end }}
 
     {{- .Content }}

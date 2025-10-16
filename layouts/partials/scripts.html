@@ -1,6 +1,11 @@
-<script src="{{ (resources.Get "js/jquery.min.js").RelPermalink }}"></script>
-<script src="{{ (resources.Get "js/jquery.dropotron.min.js").RelPermalink }}"></script>
-<script src="{{ (resources.Get "js/browser.min.js").RelPermalink }}"></script>
-<script src="{{ (resources.Get "js/breakpoints.min.js").RelPermalink }}"></script>
-<script src="{{ (resources.Get "js/util.js").RelPermalink }}"></script>
-<script src="{{ (resources.Get "js/main.js").RelPermalink }}"></script>
+{{- $js := slice
+    (resources.Get "js/jquery.min.js")
+    (resources.Get "js/jquery.dropotron.min.js")
+    (resources.Get "js/browser.min.js")
+    (resources.Get "js/breakpoints.min.js")
+    (resources.Get "js/util.js")
+    (resources.Get "js/main.js")
+-}}
+
+{{- $bundle := $js | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint -}}
+<script src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous"></script>
