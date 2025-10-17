@@ -35,6 +35,8 @@
                           class="img-fluid" />
                     {{- end }}
                 </picture>
+            {{- else }}
+                <img src="{{ .Params.image | relURL }}" alt="{{ $alt }}">
             {{- end }}
         </a>
 
